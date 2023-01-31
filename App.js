@@ -15,14 +15,14 @@ export default function App() {
   const [name, setName] = useState('');
   const [desc, setDesc] = useState('');
 
-  const [file, setFile] = useState();
+  const [file, setFile] = useState('');
 
-  function handleChange(e){
-    console.log(e.target.files);
-    setFile(URL.createObjectURL(e.target.files[0]));
-  }
+  // function handleChange(e) {
+  //   console.log(e.target.files);
+  //   setFile(URL.createObjectURL(e.target.files[0]));
+  // }
 
-  function hien(){
+  function hien() {
     <div>
       <TextInput
         value={name}
@@ -46,7 +46,7 @@ export default function App() {
     setItems([...items, { name, desc, file }]);
     setName('');
     setDesc('');
-    // setFile('');
+    setFile('');
   };
 
   return (
@@ -75,16 +75,22 @@ export default function App() {
         <img src={file}/>
       </div> */}
 
-      <Button title="Thêm" onPress={addItem} />
+      <Button title="Thêm" onPress={addItem}/>
+      <Button title="Hủy"/>
 
       <FlatList
         data={items}
         renderItem={({ item }) => (
           <Text>Tên: {item.name}, Mô tả: {item.desc}</Text>
-          // <Image
-          //   source={{uri: item.file}}
-          //   style={{width: 100, height: 100, margin: 5}}>
-          //   </Image>
+          // <Image source={item.file}
+            // style={{
+            //   width: 100,
+            //   height: 100,
+            //   borderWidth: 2,
+            //   borderColor: '#d35647',
+            //   margin: 8
+            // }}
+          // />
         )}
       />
 
