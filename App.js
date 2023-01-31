@@ -46,7 +46,7 @@ export default function App() {
     setItems([...items, { name, desc, file }]);
     setName('');
     setDesc('');
-    setFile('');
+    setFile('.../assets/icon.png');
   };
 
   return (
@@ -81,16 +81,18 @@ export default function App() {
       <FlatList
         data={items}
         renderItem={({ item }) => (
+          <View>
+            <Image source={item.file}
+            style={{
+              width: 100,
+              height: 100,
+              borderWidth: 2,
+              borderColor: '#d35647',
+              margin: 8
+            }}
+          />
           <Text>Tên: {item.name}, Mô tả: {item.desc}</Text>
-          // <Image source={item.file}
-            // style={{
-            //   width: 100,
-            //   height: 100,
-            //   borderWidth: 2,
-            //   borderColor: '#d35647',
-            //   margin: 8
-            // }}
-          // />
+          </View>
         )}
       />
 
