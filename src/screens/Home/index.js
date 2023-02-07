@@ -15,17 +15,20 @@ Yêu cầu:
 const Home = (props) => {
     const navigation = props.navigation;
 
-    const chuyenMH = (tenMH) => {
-        navigation.navigate(tenMH);
+    const chuyenMH = (tenMH, data = {}) => {
+        // navigation.navigate('Tên màn hình', dữ liệu dạng object);
+        navigation.navigate(tenMH, data);
     };
 
     return (
         <View>
             <Text>Trang chủ</Text>
-            <Pressable onPress={() => chuyenMH('Info')}>
+            <Pressable onPress={() => chuyenMH(
+                'Info', {name: 'TEN SV TRUYEN SANG', id: 'PH12345'}
+            )}>
                 <Text>Sang MH Thông tin</Text>
             </Pressable>
-            <Pressable onPress={() => chuyenMH('UserList')}>
+            <Pressable onPress={() => chuyenMH('UserList', {title: 'Sản phẩm'})}>
                 <Text>Sang MH Danh sách</Text>
             </Pressable>
         </View>
